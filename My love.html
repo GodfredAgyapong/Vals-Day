@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Eurika 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  overflow:hidden;
+  background:linear-gradient(135deg,#FCE8F3,#FCD8EB);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#5a2a4d;
+  transition:background 1.2s ease;
+}
+
+/* Screens */
+.screen{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+  pointer-events:none;
+  padding:20px;
+}
+
+.screen.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* Glass Card */
+.card{
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(25px);
+  border-radius:30px;
+  padding:60px 40px;
+  max-width:800px;
+  width:90%;
+  text-align:center;
+  box-shadow:
+      0 20px 60px rgba(0,0,0,0.08),
+      0 0 60px rgba(255,182,212,0.4);
+  position:relative;
+}
+
+/* Typography */
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,60px);
+  margin-bottom:25px;
+}
+
+.text-group p{
+  font-size:clamp(18px,2.5vw,24px);
+  line-height:1.8;
+  margin-bottom:18px;
+  min-height:28px;
+}
+
+/* Typewriter Cursor */
+.typewriter::after{
+  content:"|";
+  margin-left:5px;
+  animation:blink 1s infinite;
+}
+
+.typewriter.done::after{
+  display:none;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0;}
+}
+
+/* Buttons */
+button{
+  padding:14px 40px;
+  border-radius:40px;
+  border:none;
+  cursor:pointer;
+  font-size:16px;
+  background:linear-gradient(135deg,#f8b8d7,#dba3ff);
+  color:#4a1f3f;
+  font-weight:500;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:all 0.3s ease;
+  margin-top:20px;
+}
+
+button:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
+/* Floating Hearts */
+.heart{
+  position:absolute;
+  font-size:18px;
+  opacity:0.3;
+  animation:float 18s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+/* Sparkles */
+.sparkle{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+  opacity:0.5;
+  pointer-events:none;
+}
+
+@keyframes twinkle{
+  from{opacity:0.2; transform:scale(1);}
+  to{opacity:1; transform:scale(1.8);}
+}
+
+/* Confetti */
+.confetti{
+  position:absolute;
+  width:10px;
+  height:10px;
+  animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(100vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+.glow{
+  background:linear-gradient(135deg,#ffd9ec,#e5c6ff);
+}
+
+@media(max-width:768px){
+  .card{padding:40px 25px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Screen 1 -->
+<div id="screen1" class="screen active">
+  <div class="card">
+    <h1>My Eurika… 💕</h1>
+    <div class="text-group">
+      <p class="typewriter" data-text="I made this just for you."></p>
+    </div>
+    <button onclick="nextScreen(2)">Click Me</button>
+  </div>
+</div>
+
+<!-- Screen 2 -->
+<div id="screen2" class="screen">
+  <div class="card">
+    <div class="text-group">
+      <p class="typewriter" data-text="Out of everyone in this world…"></p>
+      <p class="typewriter" data-text="My heart chose you."></p>
+    </div>
+    <button onclick="nextScreen(3)">Click Me Again</button>
+  </div>
+</div>
+
+<!-- Screen 3 -->
+<div id="screen3" class="screen">
+  <div class="card">
+    <div class="text-group">
+      <p class="typewriter" data-text="You make my world softer."></p>
+      <p class="typewriter" data-text="You make my days lighter."></p>
+      <p class="typewriter" data-text="You make my heart feel full."></p>
+    </div>
+    <button onclick="nextScreen(4)">Click Me Again</button>
+  </div>
+</div>
+
+<!-- Screen 4 -->
+<div id="screen4" class="screen">
+  <div class="card">
+    <div class="text-group">
+      <p class="typewriter" data-text="I love your smile."></p>
+      <p class="typewriter" data-text="I love your energy."></p>
+      <p class="typewriter" data-text="I love your voice."></p>
+      <p class="typewriter" data-text="I love the way you care."></p>
+      <p class="typewriter" data-text="I love how you make me feel safe and happy."></p>
+    </div>
+    <button onclick="nextScreen(5)">One Last Thing…</button>
+  </div>
+</div>
+
+<!-- Screen 5 -->
+<div id="screen5" class="screen">
+  <div class="card" id="finalCard">
+    <h1>Eurika Naa Ayekor Tetteh…</h1>
+    <div class="text-group">
+      <p class="typewriter" data-text="I love youuuu❤️"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+
+let transitioning=false;
+
+/* Screen Transition */
+function nextScreen(num){
+  if(transitioning) return;
+  transitioning=true;
+
+  const current=document.querySelector(".screen.active");
+  const next=document.getElementById("screen"+num);
+
+  current.classList.remove("active");
+
+  setTimeout(()=>{
+    next.classList.add("active");
+    transitioning=false;
+    typeSequential(next);
+
+    if(num===5){
+      setTimeout(()=>revealChoices(),3000);
+    }
+  },800);
+}
+
+/* Sequential Typewriter */
+function typeSequential(container){
+  const elements=container.querySelectorAll(".typewriter");
+  let index=0;
+
+  function typeNext(){
+    if(index<elements.length){
+      typeText(elements[index],35,()=>{
+        index++;
+        setTimeout(typeNext,400);
+      });
+    }
+  }
+  typeNext();
+}
+
+function typeText(element,speed,callback){
+  const text=element.getAttribute("data-text");
+  element.innerHTML="";
+  element.classList.remove("done");
+  let i=0;
+
+  function typing(){
+    if(i<text.length){
+      element.innerHTML+=text[i];
+      i++;
+      let delay=speed;
+      if(text[i-1]=="."||text[i-1]=="…") delay=200;
+      setTimeout(typing,delay);
+    }else{
+      element.classList.add("done");
+      if(callback) callback();
+    }
+  }
+  typing();
+}
+
+/* Initial type */
+document.addEventListener("DOMContentLoaded",()=>{
+  typeSequential(document.getElementById("screen1"));
+});
+
+/* Reveal Final Choices */
+function revealChoices(){
+  const choices=document.getElementById("choices");
+  choices.classList.remove("hidden");
+  typeSequential(choices);
+}
+
+/* Floating Hearts */
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),18000);
+},3000);
+
+/* Sparkles */
+setInterval(()=>{
+  const sparkle=document.createElement("div");
+  sparkle.className="sparkle";
+  sparkle.style.left=Math.random()*100+"vw";
+  sparkle.style.top=Math.random()*100+"vh";
+  document.body.appendChild(sparkle);
+  setTimeout(()=>sparkle.remove(),2000);
+},1200);
+
+    /* YES */
+  /*  function yesClicked(){
+    document.body.classList.add("glow");
+
+    for(let i=0;i<120;i++){
+        const confetti=document.createElement("div");
+        confetti.className="confetti";
+        confetti.style.left=Math.random()*100+"vw";
+        confetti.style.background=Math.random()>0.5?"#f8b8d7":"#dba3ff";
+        document.body.appendChild(confetti);
+        setTimeout(()=>confetti.remove(),4000);
+    }
+
+    document.getElementById("finalCard").innerHTML=
+    `<h1>She said YES!!! 💖💜</h1>
+    <p>I love you so much, Sophie.</p>`;
+    }
+
+    /* Playful NO */
+  /*  const noBtn=document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.position="absolute";
+    noBtn.style.left=Math.random()*70+"%";
+    noBtn.style.top=Math.random()*70+"%";
+    }); */
+
+</script>
+
+</body>
+</html>
